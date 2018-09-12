@@ -48,22 +48,6 @@ public class CJT
         System.out.println("groupCompetence = " + accumulatedCompetence);
     }
 
-    /**
-     * adapted from GitHub user sshark
-     * @param n
-     * @param m
-     * @return
-     */
-    private BigDecimal factorial(BigDecimal n, BigDecimal m)
-    {
-        if (n.equals(BigDecimal.ONE))
-        {
-            return m;
-        }
-        BigDecimal lessOne = n.subtract(BigDecimal.ONE);
-        return factorial(lessOne, m.multiply(lessOne));
-    }
-
     private BigInteger factorial(BigInteger n)
     {
         if (n.equals(BigInteger.ONE))
@@ -83,33 +67,6 @@ public class CJT
         for (long i = longVal; i >= 1; --i)
         {
             val = val.multiply(BigInteger.valueOf(i));
-        }
-        return val;
-    }
-
-    private BigDecimal power(BigDecimal base, long exp)
-    {
-        if (exp == 1)
-        {
-            return base;
-        }
-        if (exp == 0)
-        {
-            return BigDecimal.ONE;
-        }
-        boolean invert = (exp < 0) ? true : false;
-        if (invert)
-        {
-            exp = -exp;
-        }
-        BigDecimal val = BigDecimal.ONE;
-        for (long i = exp; i >= 1; --i)
-        {
-            val = val.multiply(base);
-        }
-        if (invert)
-        {
-            return BigDecimal.ONE.divide(val, 20, BigDecimal.ROUND_HALF_UP);
         }
         return val;
     }
